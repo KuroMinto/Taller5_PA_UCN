@@ -19,6 +19,8 @@ public class menuInterno extends JDialog{
         setModal(true);
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
+        //Metodo cuando el usuario quiere ir a buscar un libro
         buscarLibroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -26,6 +28,7 @@ public class menuInterno extends JDialog{
                 menuBuscarLibro buscarLibro = new menuBuscarLibro(null);
             }
         });
+        //Metodo cuando el usuario quiere prestar un libro
         prestarLibroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -33,6 +36,7 @@ public class menuInterno extends JDialog{
                 menuPrestarLibro prestarLibro = new menuPrestarLibro(null);
             }
         });
+        //Metodo cuando el usuario quiere agregar un libro nuevo
         agregarNuevoLibroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -40,6 +44,7 @@ public class menuInterno extends JDialog{
                 menuAgregarLibro agregarLibro = new menuAgregarLibro(null);
             }
         });
+        //Metodo cuando el usuario quiere recibir un libro que ha sido prestado
         devolverLibroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -47,6 +52,7 @@ public class menuInterno extends JDialog{
                 menuDevolucion devolverLibro = new menuDevolucion(null);
             }
         });
+        //Metodo cuando el usuario quiere volver al menu de inicio de sesion
         menuInternoReturn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

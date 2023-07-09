@@ -6,6 +6,13 @@ public class Usuario {
     private String apellido;
     private String pass;
 
+    /**
+     *
+     * @param rut del usuario
+     * @param nombre del usuario
+     * @param apellido del usuario
+     * @param pass word del usuario
+     */
     public Usuario(String rut, String nombre, String apellido, String pass) {
         this.rut = rut;
         this.nombre = nombre;

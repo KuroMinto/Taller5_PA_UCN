@@ -47,6 +47,9 @@ public class menuBuscarLibro extends JDialog {
         setVisible(true);
     }
 
+    /**
+     * Metodo para mostrar el libro solicitado mediante ISBN
+     */
     private void mostrarLibro() {
         LinkedList<Libro> libros = LecturaArchivos.leerArchivoLibros();
         String isbn = menuBLISBN.getText();

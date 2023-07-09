@@ -44,6 +44,10 @@ public class menuDevolucion extends JDialog{
         setVisible(true);
     }
 
+    /**
+     * Metodo usado cuando el trabajador recibe un libro que ha sido prestado y lo quiere volver a ingresar al sistema.
+     * @throws IOException
+     */
     private void prestarLibro() throws IOException {
         LinkedList<Libro> libros = LecturaArchivos.leerArchivoLibros();
 
@@ -77,6 +81,12 @@ public class menuDevolucion extends JDialog{
         return;
     }
 
+    /**
+     * Metodo para actualizar el archivo libros.txt
+     * @param libros
+     * @param isbn
+     * @throws IOException
+     */
     private void actualizarLibros(LinkedList<Libro> libros, String isbn) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter("libros.txt"));
 

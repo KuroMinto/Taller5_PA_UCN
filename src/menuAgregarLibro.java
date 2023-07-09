@@ -47,6 +47,10 @@ public class menuAgregarLibro extends JDialog {
         setVisible(true);
     }
 
+    /**
+     * Metodo para agregar y actualizar los libros que hay en el documento libros.txt
+     * @throws IOException
+     */
     private void actualizarLibros() throws IOException {
         LinkedList<Libro> libros = LecturaArchivos.leerArchivoLibros();
 

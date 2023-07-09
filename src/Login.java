@@ -15,6 +15,11 @@ public class Login extends JDialog{
     private JPanel jfLoginPanel;
     private JButton jfBtnClose;
 
+    /**
+     *
+     * @param parent
+     * Constructor de la clase Login para el GUI.
+     */
     public Login(JFrame parent) {
         super(parent);
         setTitle("Inicio de Sesion de Usuarios");
@@ -23,6 +28,9 @@ public class Login extends JDialog{
         setModal(true);
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        /**
+         * Aqui se ejecuta una accion cuando el usuario hace click en el boton jfBtnLogin
+         */
         jfBtnLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -33,6 +41,9 @@ public class Login extends JDialog{
                 }
             }
         });
+        /**
+         * Aqui se cierra el programa cuando el usuario hace click en el boton jfBtnClose
+         */
         jfBtnClose.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -42,6 +53,10 @@ public class Login extends JDialog{
         setVisible(true);
     }
 
+    /**
+     * Metodo para buscar los usuarios y poder verificar si existen o no.
+     * @throws IOException
+     */
     private void buscarUsuario() throws IOException {
         LinkedList<Usuario> usuarios = LecturaArchivos.leerArchivoUsuarios();
         String rut = jfRut.getText();

@@ -8,6 +8,15 @@ public class Libro {
     private final int paginas;
     private int stock;
 
+    /**
+     *
+     * @param isbn del libro
+     * @param title del libro
+     * @param author del libro
+     * @param categoria del libro
+     * @param paginas del libro
+     * @param stock del libro
+     */
     public Libro(String isbn, String title, String author, String categoria, int paginas, int stock) {
         this.isbn = isbn;
         this.title = title;

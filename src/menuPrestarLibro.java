@@ -42,6 +42,10 @@ public class menuPrestarLibro extends JDialog{
         setVisible(true);
     }
 
+    /**
+     * Metodo para cuando el usuario quiere prestar un libro
+     * @throws IOException
+     */
     private void prestarLibro() throws IOException {
         LinkedList<Libro> libros = LecturaArchivos.leerArchivoLibros();
 
@@ -81,6 +85,12 @@ public class menuPrestarLibro extends JDialog{
         return;
     }
 
+    /**
+     * Metodo para actualizar el archivo libros.txt cuando se presta un libro
+     * @param libros es la lista de libros completa
+     * @param isbn es el isbn del libro que se quiere prestar
+     * @throws IOException
+     */
     private void actualizarLibros(LinkedList<Libro> libros, String isbn) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter("libros.txt"));
 
