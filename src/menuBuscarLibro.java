@@ -74,5 +74,11 @@ public class menuBuscarLibro extends JDialog {
                 return;
             }
         }
+
+        JOptionPane.showMessageDialog(this,
+                "El libro solicitado no existe",
+                "Intentelo de nuevo",
+                JOptionPane.ERROR_MESSAGE);
+        return;
     }
 }

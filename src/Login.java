@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.LinkedList;
 
 public class Login extends JDialog{
@@ -25,7 +26,11 @@ public class Login extends JDialog{
         jfBtnLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                buscarUsuario();
+                try {
+                    buscarUsuario();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
         jfBtnClose.addActionListener(new ActionListener() {
@@ -37,7 +42,7 @@ public class Login extends JDialog{
         setVisible(true);
     }
 
-    private void buscarUsuario() {
+    private void buscarUsuario() throws IOException {
         LinkedList<Usuario> usuarios = LecturaArchivos.leerArchivoUsuarios();
         String rut = jfRut.getText();
         String password = String.valueOf(jfPass.getPassword());
@@ -50,7 +55,8 @@ public class Login extends JDialog{
             return;
         }
 
-        for (int i = 0; i< (usuarios != null ? usuarios.size() : 0) -1; i++) {
+
+        for (int i = 0; i < (usuarios != null ? usuarios.size() : 0) - 1; i++) {
             if (rut.equals(usuarios.get(i).getRut()) && password.equals(usuarios.get(i).getPass())) {
                 setVisible(false);
                 menuInterno menuInterno1 = new menuInterno(null);
