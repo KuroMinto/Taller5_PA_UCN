@@ -57,7 +57,7 @@ public class menuDevolucion extends JDialog{
             return;
         }
 
-        for (int i = 0; i< (libros != null ? libros.size() : 0) -1; i++) {
+        for (int i = 0; i< (libros != null ? libros.size() : 0); i++) {
             if (isbn.equals(libros.get(i).getIsbn())) {
                 if (libros.get(i).getPaginas() > 0) {
                     JOptionPane.showMessageDialog(this,
@@ -80,7 +80,7 @@ public class menuDevolucion extends JDialog{
     private void actualizarLibros(LinkedList<Libro> libros, String isbn) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter("libros.txt"));
 
-        for (int i = 0; i< (libros != null ? libros.size() : 0) -1; i++) {
+        for (int i = 0; i< (libros != null ? libros.size() : 0); i++) {
             if (isbn.equals(libros.get(i).getIsbn())) {
 
                 int numCopias = libros.get(i).getStock();
@@ -88,7 +88,7 @@ public class menuDevolucion extends JDialog{
             }
         }
 
-        for (int i = 0; i< (libros != null ? libros.size() : 0) -1; i++) {
+        for (int i = 0; i< (libros != null ? libros.size() : 0); i++) {
             isbn = libros.get(i).getIsbn();
             String titulo = libros.get(i).getTitle();
             String autor = libros.get(i).getAuthor();

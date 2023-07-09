@@ -53,7 +53,7 @@
           <background color="-14478566"/>
           <font size="16" style="1"/>
           <foreground color="-1"/>
-          <text value="Regresar"/>
+          <text value="Devolver"/>
         </properties>
       </component>
       <component id="29177" class="javax.swing.JButton" binding="menuPLRegresar">

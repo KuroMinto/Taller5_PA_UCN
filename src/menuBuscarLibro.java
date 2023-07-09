@@ -59,7 +59,7 @@ public class menuBuscarLibro extends JDialog {
             return;
         }
 
-        for (int i = 0; i< (libros != null ? libros.size() : 0) -1; i++) {
+        for (int i = 0; i< (libros != null ? libros.size() : 0); i++) {
             if (isbn.equals(libros.get(i).getIsbn())) {
                 String titulo = libros.get(i).getTitle();
                 String autor = libros.get(i).getAuthor();

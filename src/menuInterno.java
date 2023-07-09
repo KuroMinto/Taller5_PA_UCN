@@ -36,7 +36,8 @@ public class menuInterno extends JDialog{
         agregarNuevoLibroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: Menu de agregar nuevo libro
+                setVisible(false);
+                menuAgregarLibro agregarLibro = new menuAgregarLibro(null);
             }
         });
         devolverLibroButton.addActionListener(new ActionListener() {
