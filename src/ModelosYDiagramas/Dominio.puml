@@ -1,0 +1,60 @@
+@startuml
+left to right direction
+skin rose
+skinparam backgroundcolor AntiqueWhite/Purple
+skinparam classBackgroundColor AntiqueWhite|Pink
+skinparam ArrowColor white
+
+Class Login {
+    RUT
+    Password
+}
+
+Class agregarLibro {
+    ISBN
+    Titulo
+    Autor
+    Categoria
+    Paginas
+}
+
+Class buscarLibro {
+    ISBN
+}
+
+Class Devolucion {
+    ISBN
+}
+
+Class prestarLibro {
+    ISBN
+}
+
+Class Libro {
+    ISBN
+    Titulo
+    Autor
+    Categoria
+    Paginas
+    Stock
+}
+
+Class Usuario {
+    RUT
+    nombre
+    apellido
+    Password
+}
+
+Login "1" --> "1.." buscarLibro: Puede
+Login "1" --> "1.." agregarLibro: Puede
+Login "1" --> "1.." prestarLibro: Puede
+Login "1" --> "1.." Devolucion: Permite
+Usuario "1.." <--o "1" Login: Contiene
+Libro "1.." <--o "1" Login: Contiene
+note "Solo permite las acciones si se esta logeado en el sistema" as N1
+N1 .up. Login
+
+
+
+@enduml
