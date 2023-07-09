@@ -4,24 +4,26 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.LinkedList;
 
-public class menuPrestarLibro extends JDialog{
+public class menuDevolucion extends JDialog{
     private JTextField menuBLISBN;
-    private JButton botonPrestar;
-    private JPanel menuPrestarLibro;
+    private JButton botonDevolver;
     private JButton menuPLRegresar;
+    private JPanel jfMenuDevolucion;
 
-    public menuPrestarLibro(JFrame parent) {
+    public menuDevolucion(JFrame parent) {
         super(parent);
         setTitle("Panel de Trabajo");
-        setContentPane(menuPrestarLibro);
+        setContentPane(jfMenuDevolucion);
         setMinimumSize(new Dimension(550, 500));
         setModal(true);
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        botonPrestar.addActionListener(new ActionListener() {
+        botonDevolver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -59,16 +61,10 @@ public class menuPrestarLibro extends JDialog{
             if (isbn.equals(libros.get(i).getIsbn())) {
                 if (libros.get(i).getPaginas() > 0) {
                     JOptionPane.showMessageDialog(this,
-                            "El libro ha sido prestado con exito",
+                            "El libro ha sido devuelto con exito",
                             "Libro prestado",
                             JOptionPane.INFORMATION_MESSAGE);
                     actualizarLibros(libros,isbn);
-                    return;
-                } else {
-                    JOptionPane.showMessageDialog(this,
-                            "El libro solicitado no tiene copias disponibles",
-                            "Sin copias disponibles",
-                            JOptionPane.ERROR_MESSAGE);
                     return;
                 }
             }
@@ -88,7 +84,7 @@ public class menuPrestarLibro extends JDialog{
             if (isbn.equals(libros.get(i).getIsbn())) {
 
                 int numCopias = libros.get(i).getStock();
-                libros.get(i).setStock(numCopias-1);
+                libros.get(i).setStock(numCopias+1);
             }
         }
 

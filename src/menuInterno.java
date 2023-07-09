@@ -42,7 +42,8 @@ public class menuInterno extends JDialog{
         devolverLibroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: Menu de devolverLibro
+                setVisible(false);
+                menuDevolucion devolverLibro = new menuDevolucion(null);
             }
         });
         menuInternoReturn.addActionListener(new ActionListener() {

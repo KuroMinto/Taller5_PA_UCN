@@ -5,7 +5,9 @@
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-14476781"/>
+    </properties>
     <border type="bevel-lowered" title="BiblioTech" title-justification="2" title-position="2">
       <font/>
       <title-color color="-3355444"/>
