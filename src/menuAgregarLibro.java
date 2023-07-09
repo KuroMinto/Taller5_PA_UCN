@@ -95,5 +95,10 @@ public class menuAgregarLibro extends JDialog {
         cantPaginas = Integer.parseInt(textField5.getText());
         writer.write(isbn+","+titulo+","+autor+","+categoria+","+cantPaginas+","+1);
         writer.close();
+
+        JOptionPane.showMessageDialog(this,
+                "El libro ha sido agregado correctamente",
+                "Libro agregado",
+                JOptionPane.INFORMATION_MESSAGE);
     }
 }

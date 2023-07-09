@@ -62,6 +62,5 @@ public class Login extends JDialog{
                         "\nIntentelo de nuevo.",
                 "Usuario no existente",
                 JOptionPane.ERROR_MESSAGE);
-        return;
     }
 }
