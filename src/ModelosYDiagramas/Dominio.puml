@@ -46,9 +46,9 @@ Class Usuario {
     Password
 }
 
-Login "1" --> "1.." buscarLibro: Puede
-Login "1" --> "1.." agregarLibro: Puede
-Login "1" --> "1.." prestarLibro: Puede
+Login "1" --> "1.." buscarLibro: Permite
+Login "1" --> "1.." agregarLibro: Permite
+Login "1" --> "1.." prestarLibro: Permite
 Login "1" --> "1.." Devolucion: Permite
 Usuario "1.." <--o "1" Login: Contiene
 Libro "1.." <--o "1" Login: Contiene

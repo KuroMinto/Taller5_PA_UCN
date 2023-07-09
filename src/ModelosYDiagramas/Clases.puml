@@ -1,4 +1,187 @@
 @startuml
+!theme cerulean-outline
+Package Objetos {
+    Class Libro {
+        ..Atributos..
+        -isbn: String
+        -titulo: String
+        -autor: String
+        -categoria: String
+        -paginas: int
+        -stock: int
+        ..Constructor..
+        +Libro(String isbn, String title, String author, String categoria, int paginas, int stock)
+        ..Getters && Setters..
+        +getIsbn(): String
+        +getTitulo(): String
+        +getAutor(): String
+        +getCategoria(): String
+        +getPaginas(): int
+        +getStock(): int
+        +setStock(): void
+    }
 
+    Class Usuario {
+        ..Atributos..
+        -rut: String
+        -nombre: String
+        -apellido: String
+        -pass: String
+        ..Constructor..
+        +Usuario(String rut, String nombre, String apellido, String pass)
+        ..Getters && Setters..
+        +getRut(): String
+        +getNombre(): String
+        +getApellido(): String
+        +getPass(): String
+    }
+}
 
+Class LecturaArchivos {
+    +leerArchivoLibros(): LinkedList<Libro>
+    +leerArchivoUsuarios(): LinkedList<Usuario>
+}
+
+Package Login {
+    Class Login {
+        ..Atributos..
+        -jfRut: JTextField
+        -jfPass: JPasswordField
+        -jfBtnLogin: JButton
+        -jfLoginPanel: JPanel
+        -jfBtnClose: JButton
+        ..Constructor..
+        +Login(JFrame parent)
+        ..Metodos..
+        +buscarUsuario(): void
+
+    }
+
+    Class LoginForm <<Form>>{
+        Desc: Interfaz grafica del menu de Login.
+    }
+    hide <<Form>> circle
+}
+Package menuAgregarLibro {
+    Class menuAgregarLibro {
+        ..Atributos..
+        -textField1: JTextField
+        -textField2: JTextField
+        -textField3: JTextField
+        -textField4: JTextField
+        -textField5: JTextField
+        -menuPLRegresar: JButton
+        -agregarBtn: JButton
+        -jfAgregar: JPanel
+        ..Constructor..
+        +menuAgregarLibro(JFrame parent)
+        ..Metodos..
+        +actualizarLibros(): void
+    }
+
+    Class menuAgregarLibroForm <<Form>>{
+        Desc: Interfaz grafica del menu de agregar libro.
+    }
+    hide <<Form>> circle
+}
+Package menuBuscarLibro {
+    Class menuBuscarLibro {
+        ..Atributos..
+        -menuBuscarLibro: JPanel
+        -menuBLISBN: JTextField
+        -botonBuscan: JButton
+        -textPane1: JTextArea
+        -textPane2: JTextArea
+        -textPane3: JTextArea
+        -textPane4: JTextArea
+        -textPane5: JTextArea
+        -regresarBtn: JButton
+        ..Constructor..
+        +menuBuscarLibro(JFrame parent)
+        ..Metodos..
+        +mostrarLibro(): void
+    }
+
+    Class menuBuscarLibroForm <<Form>>{
+        Desc: Interfaz grafica del menu de buscar libro.
+    }
+    hide <<Form>> circle
+}
+Package menuDevolucion {
+    Class menuDevolucion {
+        ..Atributos..
+        -menuBLISBN: JTextField
+        -botonDevolver: JButton
+        -menuPLRegresar: JButton
+        -jfMenuDevolucion: JPanel
+        ..Constructor..
+        +menuDevolucion(JFrame parent)
+        ..Metodos..
+        +prestarLibro(): void
+        +actualizarLibros(LinkedList<Libro> libros, String isbn): void
+    }
+
+    Class menuDevolucionForm <<Form>>{
+        Desc: Interfaz grafica del menu de devolucion de libros.
+    }
+    hide <<Form>> circle
+}
+Package menuPrestarLibro {
+    Class menuPrestarLibro {
+        ..Atributos..
+        -menuBLISBN: JTextField
+        -botonPrestar: JButton
+        -menuPrestarLibro: JPanel
+        -menuPLRegresar: JButton
+        ..Constructor..
+        +menuPrestarLibro(JFrame parent)
+        ..Metodos..
+        +prestarLibro(): void
+        +actualizarLibros(LinkedList<Libro> libros, String isbn): void
+    }
+
+    Class menuPrestarLibroForm <<Form>>{
+        Desc: Interfaz grafica del menu de prestamo de libros.
+    }
+    hide <<Form>> circle
+}
+Package menuInterno {
+    Class menuInterno {
+        ..Atributos..
+        -menuInterno1: JPanel
+        -buscarLibroButton: JButton
+        -prestarLibroButton: JButton
+        -agregarNuevoLibroButton: JButton
+        -devolverLibroButton: JButton
+        -menuInternoReturn: JButton
+        ..Constructor..
+        +menuInterno(JFrame parent)
+    }
+
+    Class menuInternoForm <<Form>>{
+        Desc: Interfaz grafica del menu principal luego de logearse.
+    }
+    hide <<Form>> circle
+}
+
+LoginForm "1" o--> "1" Login.Login: Pertenece
+menuAgregarLibroForm "1" o--> "1" menuAgregarLibro.menuAgregarLibro: pertenece
+menuBuscarLibroForm "1" o--> "1" menuBuscarLibro.menuBuscarLibro: pertenece
+menuDevolucionForm "1" o--> "1" menuDevolucion.menuDevolucion: pertenece
+menuPrestarLibroForm "1" o--> "1" menuPrestarLibro.menuPrestarLibro: pertenece
+menuInternoForm "1" o--> "1" menuInterno.menuInterno: pertenece
+Note "Carga los usuarios y libro antes de iniciar sesion\npero solo aquellos logeados pueden interactuar \ncon las opciones que permiten modificar la lista de libros." as N1
+N1 .up. LecturaArchivos
+menuInterno.menuInterno "1" <-- "1" Login.Login: Ingresa a
+menuAgregarLibro.menuAgregarLibro "1" <-- "1" menuInterno.menuInterno: Puede
+menuBuscarLibro.menuBuscarLibro "1" <-- "1" menuInterno.menuInterno: Puede
+menuDevolucion.menuDevolucion "1" <-- "1" menuInterno.menuInterno: Puede
+menuPrestarLibro.menuPrestarLibro "1" <-- "1" menuInterno.menuInterno: Puede
+Libro "1.." <--o "1" LecturaArchivos: Tiene
+Usuario "1.." <--o "1" LecturaArchivos: Tiene
+LecturaArchivos "1" --> "1" Login.Login: Entrega listas
+LecturaArchivos "1" --> "1" menuAgregarLibro.menuAgregarLibro: Entrega listas
+LecturaArchivos "1" --> "1" menuPrestarLibro.menuPrestarLibro: Entrega listas
+LecturaArchivos "1" --> "1" menuDevolucion.menuDevolucion: Entrega listas
+LecturaArchivos "1" --> "1" menuBuscarLibro.menuBuscarLibro: Entrega listas
 @enduml
