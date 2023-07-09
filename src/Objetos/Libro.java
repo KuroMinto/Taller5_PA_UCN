@@ -5,16 +5,16 @@ public class Libro {
     private final String title;
     private final String author;
     private final String categoria;
-    private int copias;
-    private final int precio;
+    private final int paginas;
+    private int stock;
 
-    public Libro(String isbn, String title, String author, String categoria, int copias, int precio) {
+    public Libro(String isbn, String title, String author, String categoria, int paginas, int stock) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
         this.categoria = categoria;
-        this.copias = copias;
-        this.precio = precio;
+        this.paginas = paginas;
+        this.stock = stock;
     }
 
     public String getIsbn() {
@@ -33,15 +33,15 @@ public class Libro {
         return categoria;
     }
 
-    public int getCopias() {
-        return copias;
+    public int getPaginas() {
+        return paginas;
     }
 
-    public int getPrecio() {
-        return precio;
+    public int getStock() {
+        return stock;
     }
 
-    public void setCopias(int copias) {
-        this.copias = copias;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 }

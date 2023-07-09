@@ -1,5 +1,4 @@
 import Objetos.Libro;
-import jdk.jshell.spi.SPIResolutionException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -65,13 +64,13 @@ public class menuBuscarLibro extends JDialog {
                 String titulo = libros.get(i).getTitle();
                 String autor = libros.get(i).getAuthor();
                 String categoria = libros.get(i).getCategoria();
-                String copias = String.valueOf(libros.get(i).getCopias());
-                String precio = String.valueOf(libros.get(i).getPrecio());
+                String copias = String.valueOf(libros.get(i).getPaginas());
+                String stock = String.valueOf(libros.get(i).getStock());
                 textPane1.setText(titulo);
                 textPane2.setText(autor);
                 textPane3.setText(categoria);
                 textPane4.setText(copias);
-                textPane5.setText(precio);
+                textPane5.setText(stock);
                 return;
             }
         }

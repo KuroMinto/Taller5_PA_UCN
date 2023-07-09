@@ -29,7 +29,8 @@ public class menuInterno extends JDialog{
         prestarLibroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: Menu de prestar libro
+                setVisible(false);
+                menuPrestarLibro prestarLibro = new menuPrestarLibro(null);
             }
         });
         agregarNuevoLibroButton.addActionListener(new ActionListener() {
